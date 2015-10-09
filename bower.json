@@ -1,0 +1,23 @@
+{
+  "name": "mean-stack-sample",
+  "version": "0.0.0",
+  "homepage": "https://github.com/SHDavies/mean-stack-sample",
+  "authors": [
+    "Spencer Davies <spencerhdavies@gmail.com>"
+  ],
+  "main": "server.js",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "ui-router#~0.2.15"
+  }
+}
