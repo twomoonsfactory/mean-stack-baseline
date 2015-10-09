@@ -3,7 +3,9 @@ var Plan = require('../models/Plan');
 module.exports = {
   // Get all plan documents
   getAllPlans: function(req, res) {
-    Plan.find({}, function(err, plans) {
+    Plan.find({})
+    .populate('location')
+    .exec(function(err, plans) {
       if (err) return res.status(500).send(err);
       else res.send(plans);
     });
@@ -11,7 +13,9 @@ module.exports = {
 
   // Find one plan by ObjectId
   getOnePlan: function(req, res) {
-    Plan.findById(req.params.planId, function(err, plan) {
+    Plan.findById(req.params.planId)
+    .populate('location')
+    .exec(function(err, plan) {
       if (err) return res.status(500).send(err);
       else res.send(plan);
     });

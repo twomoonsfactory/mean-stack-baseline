@@ -11,8 +11,8 @@ var express = require('express'),
 var app = express();
 
 // Controllers
-var planCtrl = './server/controllers/planCtrl',
-    locactionCtrl = './server/controllers/locactionCtrl';
+var planCtrl = require('./server/controllers/planCtrl'),
+    locactionCtrl = require('./server/controllers/locationCtrl');
 
 // Endpoints
 app.get('/api/travelPlans', planCtrl.getAllPlans);
@@ -21,6 +21,7 @@ app.get('/api/travelPlans/:planId', planCtrl.getOnePlan);
 app.delete('/api/travelPlans/:planId', planCtrl.deletePlan);
 
 app.get('/api/locations', locactionCtrl.getLocations);
+app.post('/api/locations', locactionCtrl.addLocation);
 
 // Connections
 var mongoUri = 'mongodb://localhost:27017/mean-stack-sample';
@@ -32,5 +33,5 @@ mongoose.connection.once('open', function() {
 });
 
 app.listen(port, function() {
-  console.log('Listening on port' + port);
+  console.log('Listening on port ' + port);
 });
