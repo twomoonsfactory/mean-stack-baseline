@@ -18,7 +18,7 @@ var planCtrl = require('./server/controllers/planCtrl'),
 app.use(bodyParser.json());
 app.use(cors());
 // Serve public directory
-app.use(express.static('./public'));asdfdsf
+app.use(express.static('./public'));
 
 // Endpoints
 app.get('/api/travelPlans', planCtrl.getAllPlans);
