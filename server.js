@@ -1,4 +1,4 @@
-// setting the correct environmet
+// setting the correct environment
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var port = process.env.PORT || 5001;
 
