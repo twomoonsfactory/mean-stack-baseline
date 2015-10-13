@@ -3,17 +3,33 @@
   <head>
     <meta charset="utf-8">
     <title>MEAN Stack Sample</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- ui-grid css -->
+    <link rel="stylesheet" href="./scripts/angular-ui-grid/ui-grid.css">
   </head>
   <body ng-app="meanApp">
 
-    <ui-view></ui-view>
+    <div class="container">
+      <ui-view></ui-view>
+    </div>
 
     <!-- Bower components -->
-    <script src="../bower_components/angular/angular.js"></script>
-    <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="./scripts/angular/angular.js"></script>
+    <script src="./scripts/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="./scripts/angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="./scripts/angular-animate/angular-animate.js"></script>
+    <script src="./scripts/angular-ui-grid/ui-grid.js"></script>
 
     <!-- Local files -->
     <script src="./app.js"></script>
+
+    <!-- Controllers -->
+    <script src="./components/addPlan/addPlanCtrl.js"></script>
+    <script src="./components/viewPlans/viewPlansCtrl.js"></script>
+
+    <!-- Services -->
+    <script src="./services/planService.js"></script>
 
   </body>
 </html>

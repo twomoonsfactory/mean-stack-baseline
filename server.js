@@ -1,6 +1,6 @@
 // setting the correct environmet
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 5001;
 
 // node modules
 var express = require('express'),
@@ -13,6 +13,12 @@ var app = express();
 // Controllers
 var planCtrl = require('./server/controllers/planCtrl'),
     locactionCtrl = require('./server/controllers/locationCtrl');
+
+// Middleware
+app.use(bodyParser.json());
+app.use(cors());
+// Serve public directory
+app.use(express.static('./public'));
 
 // Endpoints
 app.get('/api/travelPlans', planCtrl.getAllPlans);

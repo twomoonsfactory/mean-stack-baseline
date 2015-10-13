@@ -1,12 +1,35 @@
-var app = angular.module("meanApp", []);
+var app = angular.module("meanApp", ['ui.router', 'ngAnimate', 'ui.grid']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/');
+  // Defaults to add plan
+  $urlRouterProvider.otherwise('/home/addPlan');
 
+  // Defines different states for ui-view
   $stateProvider
     .state('home', {
-      url: '/',
-      templateUrl: './components/home/homeTmpl.html',
-      controller: 'homeCtrl'
+      url: '/home',
+      templateUrl: './components/home/homeTmpl.html'
+    })
+
+    .state('home.addPlan', {
+      url: '/addPlan',
+      templateUrl: './components/addPlan/addPlanTmpl.html',
+      controller: 'addPlanCtrl',
+      resolve: {
+        locations: function(planService) {
+          return planService.getAllLocations();
+        }
+      }
+    })
+
+    .state('home.viewPlans', {
+      url: '/viewPlans',
+      templateUrl: './components/viewPlans/viewPlansTmpl.html',
+      controller: 'viewPlansCtrl',
+      resolve: {
+        plans: function(planService) {
+          return planService.getAllPlans();
+        }
+      }
     });
 });
