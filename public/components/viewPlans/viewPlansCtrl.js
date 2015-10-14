@@ -2,6 +2,7 @@
   'use strict';
 
   app.controller('viewPlansCtrl', function($scope, planService, plans) {
+    $scope.plans = plans;
     // Sets up ui-grid
     $scope.grid = {
       // Puts $http response into grid

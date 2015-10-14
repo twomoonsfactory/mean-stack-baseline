@@ -1,27 +1,24 @@
 (function() {
   'use strict';
 
-  app.service('planService', function($q, $http) {
-    
-    // Makes api call to add plan
-    this.addPlan = function(plan) {
+  app.service('locationService', function($q, $http) {
+    this.getAllLocations = function() {
       var deferred = $q.defer();
       $http({
-        method: "POST",
-        url: '/api/travelPlans',
-        data: plan
+        method: "GET",
+        url: '/api/locations'
       }).then(function(response) {
         deferred.resolve(response.data);
       });
       return deferred.promise;
     };
 
-    // Gets all plans in db for view plans
-    this.getAllPlans = function() {
+    this.addLocation = function(location) {
       var deferred = $q.defer();
       $http({
-        method: "GET",
-        url: '/api/travelPlans'
+        method: "POST",
+        url: '/api/locations',
+        data: location
       }).then(function(response) {
         deferred.resolve(response.data);
       });

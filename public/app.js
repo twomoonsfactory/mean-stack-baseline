@@ -1,4 +1,4 @@
-var app = angular.module("meanApp", ['ui.router', 'ngAnimate', 'ui.grid']);
+var app = angular.module("meanApp", ['ui.router', 'ngAnimate']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
   // Defaults to add plan
@@ -16,8 +16,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: './components/addPlan/addPlanTmpl.html',
       controller: 'addPlanCtrl',
       resolve: {
-        locations: function(planService) {
-          return planService.getAllLocations();
+        locations: function(locationService) {
+          return locationService.getAllLocations();
         }
       }
     })
@@ -31,5 +31,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
           return planService.getAllPlans();
         }
       }
+    })
+
+    .state('home.addLocation', {
+      url: '/addLocation',
+      templateUrl: './components/addLocation/addLocationTmpl.html',
+      controller: 'addLocationCtrl'
     });
 });

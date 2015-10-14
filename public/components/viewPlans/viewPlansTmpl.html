@@ -1,4 +1,41 @@
 <div class="row">
   <!-- gets $scope.grid for ui-grid -->
-  <div class="col-lg-10 col-lg-offset-1" ui-grid="grid"></div>
+  <table class="table table-hover">
+    <thead>
+      <th>
+        Location
+      </th>
+      <th>
+        # of People
+      </th>
+      <th>
+        # of Nights
+      </th>
+      <th>
+        Car Rental
+      </th>
+      <th>
+        Total Cost
+      </th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="plan in plans">
+        <td>
+          {{plan.location.city}}, {{plan.location.country}}
+        </td>
+        <td>
+          {{plan.numberOfPeople}}
+        </td>
+        <td>
+          {{plan.numberOfNights}}
+        </td>
+        <td>
+          <span class="glyphicon glyphicon-ok" ng-show="plan.carRental"></span>
+        </td>
+        <td>
+          {{plan.totalPrice | currency}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
