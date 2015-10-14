@@ -30,11 +30,18 @@ module.exports = {
     });
   },
 
-  // Find a plan by ObjectId and delete
-  deletePlan: function(req, res) {
-    Plan.findByIdAndRemove(req.params.planId, function(err) {
+  // Find a plan by ObjectId, delete, return updated list of plans
+  removePlan: function(req, res) {
+    Plan.findByIdAndRemove(req.params.planId, function(err, response) {
+      console.log(23);
       if (err) return res.status(500).send(err);
-      else res.end();
+      else Plan.find({})
+      .populate('location')
+      .exec(function(err, plans) {
+        console.log(26);
+        if (err) return res.status(500).send(err);
+        else res.send(plans);
+      });
     });
   }
 };
