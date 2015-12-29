@@ -9,12 +9,13 @@
   </head>
   <body ng-app="meanApp">
 
-    <div class="container" ng-controller="ctrl">
-      {{message}}
+    <div class="container">
+      <ui-view></ui-view>
     </div>
 
     <!-- Bower components -->
     <script src="./scripts/angular/angular.js"></script>
+    <script src="./scripts/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="./scripts/angular-bootstrap/ui-bootstrap.js"></script>
     <script src="./scripts/angular-animate/angular-animate.js"></script>
 
