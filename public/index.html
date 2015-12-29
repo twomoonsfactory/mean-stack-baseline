@@ -9,13 +9,12 @@
   </head>
   <body ng-app="meanApp">
 
-    <div class="container">
-      <ui-view></ui-view>
+    <div class="container" ng-controller="ctrl">
+      {{message}}
     </div>
 
     <!-- Bower components -->
     <script src="./scripts/angular/angular.js"></script>
-    <script src="./scripts/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="./scripts/angular-bootstrap/ui-bootstrap.js"></script>
     <script src="./scripts/angular-animate/angular-animate.js"></script>
 
@@ -23,13 +22,8 @@
     <script src="./app.js"></script>
 
     <!-- Controllers -->
-    <script src="./components/addPlan/addPlanCtrl.js"></script>
-    <script src="./components/viewPlans/viewPlansCtrl.js"></script>
-    <script src="./components/addLocation/addLocationCtrl.js"></script>
-
+   
     <!-- Services -->
-    <script src="./services/planService.js"></script>
-    <script src="./services/locationService.js"></script>
-
+    
   </body>
 </html>

@@ -11,8 +11,6 @@ var express = require('express'),
 var app = express();
 
 // Controllers
-var planCtrl = require('./server/controllers/planCtrl'),
-    locationCtrl = require('./server/controllers/locationCtrl');
 
 // Middleware
 app.use(bodyParser.json());
@@ -21,13 +19,6 @@ app.use(cors());
 app.use(express.static('./public'));
 
 // Endpoints
-app.get('/api/travelPlans', planCtrl.getAllPlans);
-app.post('/api/travelPlans', planCtrl.addPlan);
-app.get('/api/travelPlans/:planId', planCtrl.getOnePlan);
-app.delete('/api/travelPlans/:planId', planCtrl.removePlan);
-
-app.get('/api/locations', locationCtrl.getLocations);
-app.post('/api/locations', locationCtrl.addLocation);
 
 // Connections
 var mongoUri = 'mongodb://localhost:27017/mean-stack-sample';
