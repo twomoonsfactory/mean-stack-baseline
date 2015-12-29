@@ -11,6 +11,7 @@ var express = require('express'),
 var app = express();
 
 // Controllers
+var locationCtrl = require('./server/controllers/locationCtrl');
 
 // Middleware
 app.use(bodyParser.json());
@@ -19,6 +20,7 @@ app.use(cors());
 app.use(express.static('./public'));
 
 // Endpoints
+app.post('/api/locations', locationCtrl.addLocation);
 
 // Connections
 var mongoUri = 'mongodb://localhost:27017/mean-stack-sample';
