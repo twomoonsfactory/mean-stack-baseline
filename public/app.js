@@ -2,7 +2,7 @@ var app = angular.module("meanApp", ['ui.router', 'ngAnimate']);
 
 app.config(function($stateProvider, $urlRouterProvider){
   // Defaults to addLocation
-  $urlRouterProvider.otherwise('/home/addLocation');
+  $urlRouterProvider.otherwise('/home/addPlan');
 
   // Defines different states for ui-view
   $stateProvider
