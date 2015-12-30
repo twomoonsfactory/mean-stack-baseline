@@ -20,6 +20,7 @@ app.use(cors());
 app.use(express.static('./public'));
 
 // Endpoints
+app.get('/api/locations', locationCtrl.getLocations);
 app.post('/api/locations', locationCtrl.addLocation);
 
 // Connections
