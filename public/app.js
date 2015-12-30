@@ -2,7 +2,7 @@ var app = angular.module("meanApp", ['ui.router', 'ngAnimate']);
 
 app.config(function($stateProvider, $urlRouterProvider){
   // Defaults to addLocation
-  $urlRouterProvider.otherwise('/home/addLocation');
+  $urlRouterProvider.otherwise('/home/addPlan');
 
   // Defines different states for ui-view
   $stateProvider
@@ -18,6 +18,17 @@ app.config(function($stateProvider, $urlRouterProvider){
       resolve: {
         locations: function(locationService) {
           return locationService.getAllLocations();
+        }
+      }
+    })
+    
+    .state('home.viewPlans', {
+      url: '/viewPlans',
+      templateUrl: './components/viewPlans/viewPlansTmpl.html',
+      controller: 'viewPlansCtrl',
+      resolve: {
+        plans: function(planService) {
+          return planService.getAllPlans();
         }
       }
     })

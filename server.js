@@ -24,6 +24,9 @@ app.use(express.static('./public'));
 app.get('/api/locations', locationCtrl.getLocations);
 app.post('/api/locations', locationCtrl.addLocation);
 app.post('/api/travelPlans', planCtrl.addPlan);
+app.get('/api/travelPlans', planCtrl.getAllPlans);
+app.get('/api/travelPlans/:planId', planCtrl.getOnePlan);
+app.delete('/api/travelPlans/:planId', planCtrl.removePlan);
 
 // Connections
 var mongoUri = 'mongodb://localhost:27017/mean-stack-sample';
