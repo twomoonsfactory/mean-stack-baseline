@@ -11,6 +11,17 @@ app.config(function($stateProvider, $urlRouterProvider){
       templateUrl: './components/home/homeTmpl.html'
     })
 
+    .state('home.addPlan', {
+      url: '/addPlan',
+      templateUrl: './components/addPlan/addPlanTmpl.html',
+      controller: 'addPlanCtrl',
+      resolve: {
+        locations: function(locationService) {
+          return locationService.getAllLocations();
+        }
+      }
+    })
+    
     .state('home.addLocation', {
       url: '/addLocation',
       templateUrl: './components/addLocation/addLocationTmpl.html',

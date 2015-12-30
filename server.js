@@ -11,7 +11,8 @@ var express = require('express'),
 var app = express();
 
 // Controllers
-var locationCtrl = require('./server/controllers/locationCtrl');
+var locationCtrl = require('./server/controllers/locationCtrl'),
+    planCtrl = require('./server/controllers/planCtrl');
 
 // Middleware
 app.use(bodyParser.json());
@@ -22,6 +23,7 @@ app.use(express.static('./public'));
 // Endpoints
 app.get('/api/locations', locationCtrl.getLocations);
 app.post('/api/locations', locationCtrl.addLocation);
+app.post('/api/travelPlans', planCtrl.addPlan);
 
 // Connections
 var mongoUri = 'mongodb://localhost:27017/mean-stack-sample';
